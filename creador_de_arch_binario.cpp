@@ -13,6 +13,8 @@ struct npersonas{
 
 int main(){
     int npersonas;
+    fstream FILE("./archivo.bin", ios::out|ios::binary);
+
     cout << "inserte el numero de personas q decee registrar " << endl;
     cin >> npersonas;
 
@@ -28,13 +30,10 @@ int main(){
     cin >> n.peso;
     cout << "Ingrese la altura de la persona: " << endl;
     cin >> n.altura;
-    cout << "Ingrese el genero de la persona: " << endl;
+    cout << "Ingrese el genero H o M de la persona: " << endl;
     cin >> n.genero;
-    }
-    fstream FILE(".archivo.bin", ios::out|ios::binary);
-
     FILE.write(reinterpret_cast < char *>(&n),sizeof(npersonas));
-
+    }
     FILE.close();
 
     return 0;
