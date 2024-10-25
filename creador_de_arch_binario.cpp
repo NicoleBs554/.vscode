@@ -3,12 +3,11 @@
 #include<string>
 using namespace std;
 
-struct npersonas{
+struct persona{
+    char nombre[200];
     int id_registro, cedula, edad;
     float altura, peso;
-    string nombre;
-    char genero[1];
-
+    char genero;
 }n;
 
 int main(){
@@ -18,8 +17,8 @@ int main(){
     cout << "inserte el numero de personas q decee registrar " << endl;
     cin >> npersonas;
 
-
     for (int i=0;i<npersonas;i++){
+        n.id_registro=i+1;
     cout << "Ingrese el nombre de la persona: " << endl;
     cin >> n.nombre;
     cout << "Ingrese la cedula de la persona: " << endl;
@@ -32,7 +31,7 @@ int main(){
     cin >> n.altura;
     cout << "Ingrese el genero H o M de la persona: " << endl;
     cin >> n.genero;
-    FILE.write(reinterpret_cast < char *>(&n),sizeof(npersonas));
+    FILE.write(reinterpret_cast < char *>(&n),sizeof(n));
     }
     FILE.close();
 

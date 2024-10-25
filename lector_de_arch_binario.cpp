@@ -1,19 +1,19 @@
 #include<iostream>
 #include<fstream>
-#include<cstring>
+#include<string>
 
 using namespace std;
 
-struct npersonas{
+struct persona{
     char nombre[200];
     int id_registro, cedula, edad;
     float altura, peso;
-    char genero[1];
+    char genero;
 }n;
 
 int main(){
     fstream FILE("./archivo.bin", ios::in|ios::binary);
-    FILE.seekg(sizeof(n)*0, ios::beg);
+    FILE.seekg(sizeof(n)*1, ios::beg);
     cout << FILE.tellg() << endl;
     FILE.read(reinterpret_cast < char *>(&n), sizeof(n));
     cout << "========================" << endl
